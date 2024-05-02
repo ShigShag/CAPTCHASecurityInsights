@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Default Title</title>{% endblock %}
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    {# <script src="js/observer.js"></script> #}
+    {% block scripts %}{% endblock %}
+</head>
+
+<body>
+    <nav>
+        <div class="navbar-container">
+            <a href="/" class="logo-link">Captcha Testing Framework</a>
+            <ul class="nav-links">
+                <li><a href="/recaptcha_enterprise">reCAPTCHA enterprise</a></li>
+                <li><a href="/recaptcha_v3">reCAPTCHA v3</a></li>
+                <li><a href="/recaptcha_v2">reCAPTCHA v2</a></li>
+                <li><a href="/turnstile">Turnstile</a></li>
+                <li><a href="/friendly_captcha">FriendlyCaptcha</a></li>
+                <li><a href="/captcha_fox">CaptchaFox</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="content-container">
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    {# <div class="log-display" id="logDisplay"></div> #}
+
+</body>
+
+</html>
