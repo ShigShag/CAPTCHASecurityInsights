@@ -43,10 +43,6 @@ USER dummy
 COPY --from=builder /usr/src/captcha_testing_framework/target/release/captcha_testing_framework /usr/local/bin/captcha_testing_framework
 COPY --from=builder /usr/src/captcha_testing_framework/static/ /usr/src/captcha_testing_framework/static/
 
-# Grant the binary the capability to bind to privileged ports
-# Note: This step might require to switch back temporarily to root or adjust permissions differently
-USER dummy
-
 # Expose port 8080
 EXPOSE 8080
 
