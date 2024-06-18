@@ -22,7 +22,6 @@ const Hero = require('@ulixee/hero-playground');
 
     await activeTab.xpathSelector('/html/body/div[1]/main/form/button').$click();
 
-
     await activeTab.waitForMillis(500);
 
     await activeTab.close();

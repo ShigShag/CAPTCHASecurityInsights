@@ -7,7 +7,7 @@ const functionCallCounts = {};
 for (const key of Object.getOwnPropertyNames(Document.prototype)) {
   if (typeof originalDocument[key] === 'function') {
     // Create a proxy function if the property is a function
-    functionCallCounts[key] = 0;  // Initialize call count for this function
+    functionCallCounts[key] = 0;
 
     originalDocument[key] = new Proxy(originalDocument[key], {
       apply: function(target, thisArg, argumentsList) {

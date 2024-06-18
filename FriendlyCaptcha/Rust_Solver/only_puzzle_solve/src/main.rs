@@ -99,8 +99,7 @@ fn main() {
     // Create puzzles
     create_puzzles(&decoded, number_of_puzzles, &mut puzzles);
 
-    // TEST
-    let n_workers = num_cpus::get(); // Number of CPU threads
+    let n_workers = num_cpus::get(); 
     let pool = ThreadPool::new(n_workers);
     let (tx, rx) = mpsc::channel();
 

@@ -17,7 +17,6 @@ python3 record.py
 # Step 2 -> play movement
 python3 play.py
 
-
 # Or use programmed movements
 python3 program.py
 ```

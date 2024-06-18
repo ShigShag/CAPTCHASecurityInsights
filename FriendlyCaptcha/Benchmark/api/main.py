@@ -87,5 +87,6 @@ def puzzle_route():
     elif request.method == 'OPTIONS':
         return ('', 204)
 
+
 if __name__ == '__main__':
     app.run(debug=False, host='127.0.0.1', port=5000)
