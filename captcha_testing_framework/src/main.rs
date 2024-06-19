@@ -20,7 +20,6 @@ async fn main() -> std::io::Result<()> {
     };
 
     // Get subpaths from static directory
-    let js_path = format!("{}/js", static_file_path);
     let css_path = format!("{}/css", static_file_path);
     let template_path = format!("{}/templates/**/*", static_file_path);
 
@@ -45,8 +44,6 @@ async fn main() -> std::io::Result<()> {
         App::new()
             // Static path for css
             .service(actix_files::Files::new("/css", css_path.clone()).show_files_listing())
-            // Static path for js
-            .service(actix_files::Files::new("/js", js_path.clone()).show_files_listing())
             // Logging
             .wrap(Logger::default())
             // Templating
