@@ -77,16 +77,16 @@ class FriendlyCaptchaBot {
 
         try {
             const SolvedIndicator = "I am human";
-            await this.page.goto('https://friendlycaptcha.com/demo');
+            await this.page.goto('https://captchatest.online/friendly_captcha');
 
-            await this.page.type('#name-field', 'John Doe');
+            await this.page.type('html body div.content-container main form div.form-field input#username', 'John Doe');
 
             await this.page.waitForFunction((xpath, desiredContent) => {
                 const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
                 return element && element.textContent.trim() === desiredContent;
-            }, {}, '/html/body/main/div/form/div/div/div/span', SolvedIndicator);
+            }, {}, '/html/body/div/main/form/div[3]/div/div/div/span', SolvedIndicator);
 
-            await this.page.click('xpath=/html/body/main/div/form/button');
+            await this.page.click('xpath=/html/body/div/main/form/button');
 
             this.puzzle_solved++;
             console.log(`[${new Date().toISOString()}] Solved puzzle -- Total solved ${this.puzzle_solved}`);

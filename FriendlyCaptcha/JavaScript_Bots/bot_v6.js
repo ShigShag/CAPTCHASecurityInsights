@@ -123,7 +123,7 @@ class FriendlyCaptchaBot {
                     }
                 }
             }
-            else if (response.url() === 'https://friendlycaptcha.com/demo') {
+            else if (response.url() === 'https://captchatest.online/friendly_captcha') {
 
                 const responseBody = await response.text();
 
@@ -188,15 +188,15 @@ class FriendlyCaptchaBot {
     async Scrape() {
 
         try {
-            await this.page.goto('https://friendlycaptcha.com/demo');
+            await this.page.goto('https://captchatest.online/friendly_captcha');
 
-            await this.page.type('#name-field', 'John Doe');
+            await this.page.type('html body div.content-container main form div.form-field input#username', 'John Doe');
 
             while (this.puzzle_string === null) {
                 await new Promise(resolve => setTimeout(resolve, 5)); // Wait for 100ms before checking again
             }
 
-            await this.page.click('xpath=/html/body/main/div/form/button');
+            await this.page.click('xpath=/html/body/div/main/form/button');
 
             this.puzzle_solved++;
             console.log(`[${new Date().toISOString()}] Solved puzzle -- Total solved ${this.puzzle_solved}`);
